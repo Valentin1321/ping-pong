@@ -1,12 +1,9 @@
 from pygame import *
-
-
-
 window = display.set_mode((700,500))
 font.init()
 font = font.Font(None, 35)
-lose1 = font.render('player 1 lose', True, (180,0,0))
-lose2 = font.render('player 2 lose', True, (180,0,0))
+lose1 = font.render('player 1 lose', True, (15,0,0))
+lose2 = font.render('player 2 lose', True, (15,0,0))
 clock = time.Clock()
 FPS = 60
 window_width = 180
@@ -59,8 +56,14 @@ while game:
             game = False
     
     if finish !=True:
+        window.blit(background,(0,0))
         ball.rect.x += speed_x
         ball.rect.y += speed_y
+        racket1.reset()
+        racket2.reset()
+        racket1.update_l()
+        racket2.update_r()
+        ball.reset()
         if ball.rect.y > window_height-50 or ball.rect.y < 0:
             speed_y *= -1
 
@@ -70,7 +73,7 @@ while game:
         if ball.rect.x <0:
             finish = True
             window.blit(lose1,(200,200))
-            game =True
+            game = True
 
         if ball.rect.x >700:
             finish = True
@@ -78,13 +81,9 @@ while game:
             game = True
         
 
-        window.blit(background,(0,0))
-        racket1.reset()
-        racket2.reset()
-        racket1.update_l()
-        racket2.update_r()
-        ball.reset()
+        
 
 
-    display.update()
-    clock.tick(FPS)
+
+        display.update()
+        clock.tick(FPS)
