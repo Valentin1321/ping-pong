@@ -2,8 +2,8 @@ from pygame import *
 window = display.set_mode((700,500))
 font.init()
 font = font.Font(None, 35)
-lose1 = font.render('player 1 lose', True, (15,0,0))
-lose2 = font.render('player 2 lose', True, (15,0,0))
+lose1 = font.render('player 1 lose', True, (150,0,0))
+lose2 = font.render('player 2 lose', True, (150,0,0))
 clock = time.Clock()
 FPS = 60
 window_width = 180
